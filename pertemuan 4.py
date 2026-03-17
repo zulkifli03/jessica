@@ -3,8 +3,8 @@ balance = 0
 
 def deposit():
     global balance
-    print("Amount to deposit?")
-    i =int(input())
+    i = int(input("Amount to deposit?\n"))
+
     balance += i
     print("please wait..")
     time.sleep(2)
@@ -13,19 +13,27 @@ def deposit():
     
 def withdraw():
     global balance
-    print("Amount to withdraw?")
-    i =int(input())
-    balance -= i
+ 
+    i =int(input("Amount to withdraw?"))
+ 
     print('hollon..')
     time.sleep(2)
-    print("Thank you")
+    if i <= balance:
+        balance -= i
+        print("Thank you")
+    else: 
+        print("balance is not enough.")
+        
     input("press enter to continue")
     
 def current_balance():
-    print("")
-    
-    
-    
+    print(f"{'Your current balance :':^50}")
+    print()
+    print(f"{balance :^50}")
+    print()
+    input(f"{'press enter to continue':^50}")   
+
+
 while True:
     os.system('cls')
     print('Welcome to C-Bank')
